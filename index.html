@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Najwal Huda — Portfolio</title>
+<meta name="description" content="Portfolio pribadi Najwal Huda, mahasiswa Teknik Informatika, pekebun, dan pekerja bengkel.">
+
+<!-- Font Awesome untuk ikon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Google Fonts: Chakra Petch (display/heading) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div class="loader" id="loader">
+  <div class="loader-mark">
+    <svg viewBox="0 0 60 60" width="56" height="56">
+      <circle cx="30" cy="30" r="26" class="loader-ring loader-ring--track"></circle>
+      <circle cx="30" cy="30" r="26" class="loader-ring loader-ring--fill"></circle>
+    </svg>
+  </div>
+  <p class="loader-text">memuat pengalaman<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></p>
+</div>
+
+<!-- ===== BACKGROUND CANVAS (partikel node/daun) ===== -->
+<canvas id="bg-canvas"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <nav class="navbar-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">NH</span>
+      <span class="brand-name">Najwal Huda</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active" data-nav>Home</a></li>
+      <li><a href="#tentang" class="nav-link" data-nav>Tentang</a></li>
+      <li><a href="#aktivitas" class="nav-link" data-nav>Aktivitas</a></li>
+      <li><a href="#skills" class="nav-link" data-nav>Skills</a></li>
+      <li><a href="#portfolio" class="nav-link" data-nav>Portfolio</a></li>
+      <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== 1. HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <img src="foto-najwal.jpg" alt="Foto Najwal Huda" class="hero-photo reveal">
+      <p class="hero-eyebrow reveal">Portfolio Pribadi</p>
+      <h1 class="hero-name reveal">
+        <span class="line">NAJWAL</span>
+        <span class="line">HUDA</span>
+      </h1>
+      <p class="hero-role">
+        <span id="typingText"></span><span class="caret">|</span>
+      </p>
+      <p class="hero-desc reveal">Belajar teknologi, bekerja dengan keterampilan, dan tumbuh bersama pengalaman.</p>
+      <div class="hero-actions reveal">
+        <a href="#tentang" class="btn btn-primary" data-ripple>
+          <i class="fa-solid fa-user"></i> Tentang Saya
+        </a>
+        <a href="#portfolio" class="btn btn-outline" data-ripple>
+          <i class="fa-solid fa-diagram-project"></i> Lihat Portfolio
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-orbit" aria-hidden="true">
+      <i class="fa-solid fa-code orbit-icon orbit-icon--1"></i>
+      <i class="fa-solid fa-seedling orbit-icon orbit-icon--2"></i>
+      <i class="fa-solid fa-wrench orbit-icon orbit-icon--3"></i>
+      <i class="fa-solid fa-microchip orbit-icon orbit-icon--4"></i>
+    </div>
+
+    <a href="#tentang" class="scroll-cue" aria-label="Gulir ke bawah">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== 2. ABOUT ME ===== -->
+  <section class="section" id="tentang">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Tentang Saya</h2>
+      <p class="about-text reveal">
+        Perkenalkan, saya Najwal Huda, mahasiswa Program Studi Teknik Informatika. Selain menjalani
+        aktivitas perkuliahan, saya juga menghabiskan waktu dengan berkebun dan bekerja di bengkel.
+        Bagi saya, setiap aktivitas memberikan pengalaman dan keterampilan baru. Saya senang mempelajari
+        teknologi sekaligus tetap aktif melakukan pekerjaan praktik di kehidupan sehari-hari.
+      </p>
+
+      <div class="about-cards">
+        <div class="glass-card reveal">
+          <i class="fa-solid fa-graduation-cap card-icon"></i>
+          <h3>Mahasiswa Teknik Informatika</h3>
+          <p>Menekuni dunia perangkat lunak, logika pemrograman, dan pengembangan teknologi.</p>
+        </div>
+        <div class="glass-card reveal">
+          <i class="fa-solid fa-seedling card-icon"></i>
+          <h3>Berkebun</h3>
+          <p>Merawat tanaman mengajarkan kesabaran, ketelitian, dan menghargai proses.</p>
+        </div>
+        <div class="glass-card reveal">
+          <i class="fa-solid fa-wrench card-icon"></i>
+          <h3>Bekerja di Bengkel</h3>
+          <p>Mengasah keterampilan teknis lewat pekerjaan praktik dan pemecahan masalah nyata.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. AKTIVITAS SEHARI-HARI ===== -->
+  <section class="section section-alt" id="aktivitas">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Aktivitas Saya</h2>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="timeline-content glass-card">
+            <h3>Kuliah</h3>
+            <p>Mempelajari dunia teknologi dan informatika, dari algoritma hingga pengembangan web.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-seedling"></i></div>
+          <div class="timeline-content glass-card">
+            <h3>Berkebun</h3>
+            <p>Merawat tanaman dan belajar dari alam — ritme yang menyeimbangkan waktu di depan layar.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-wrench"></i></div>
+          <div class="timeline-content glass-card">
+            <h3>Bengkel</h3>
+            <p>Melatih keterampilan melalui pekerjaan praktik, perbaikan, dan kerja teknis langsung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. SKILLS ===== -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Keahlian</h2>
+
+      <div class="skills-grid">
+        <div class="skill-bar reveal" data-percent="80">
+          <div class="skill-bar-head"><span>HTML</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="75">
+          <div class="skill-bar-head"><span>CSS</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="65">
+          <div class="skill-bar-head"><span>JavaScript</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="70">
+          <div class="skill-bar-head"><span>Web Development</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="60">
+          <div class="skill-bar-head"><span>Basic Programming</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="78">
+          <div class="skill-bar-head"><span>Computer Skills</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="85">
+          <div class="skill-bar-head"><span>Problem Solving</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="82">
+          <div class="skill-bar-head"><span>Kerja Tim</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-bar reveal" data-percent="88">
+          <div class="skill-bar-head"><span>Keterampilan Praktik</span><span class="skill-percent">0%</span></div>
+          <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. PORTFOLIO ===== -->
+  <section class="section section-alt" id="portfolio">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Portfolio</h2>
+
+      <div class="project-grid">
+        <article class="project-card reveal" data-tilt>
+          <div class="project-thumb"><i class="fa-solid fa-id-card"></i></div>
+          <div class="project-body">
+            <h3>Website Portfolio Pribadi</h3>
+            <p>Situs profil interaktif dengan tema teknologi dan alam, dibangun dari nol.</p>
+            <a href="#" class="project-link">Lihat Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-thumb"><i class="fa-solid fa-circle-info"></i></div>
+          <div class="project-body">
+            <h3>Website Informasi</h3>
+            <p>Halaman informasi statis dengan struktur konten yang rapi dan mudah dinavigasi.</p>
+            <a href="#" class="project-link">Lihat Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-thumb"><i class="fa-brands fa-html5"></i></div>
+          <div class="project-body">
+            <h3>Project HTML &amp; CSS</h3>
+            <p>Latihan membangun tata letak responsif menggunakan Grid dan Flexbox.</p>
+            <a href="#" class="project-link">Lihat Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-thumb"><i class="fa-brands fa-js"></i></div>
+          <div class="project-body">
+            <h3>Project JavaScript</h3>
+            <p>Aplikasi kecil berbasis logika interaktif dan manipulasi DOM murni.</p>
+            <a href="#" class="project-link">Lihat Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-thumb"><i class="fa-solid fa-database"></i></div>
+          <div class="project-body">
+            <h3>Project Database</h3>
+            <p>Perancangan skema dan query untuk pengelolaan data pada aplikasi sederhana.</p>
+            <a href="#" class="project-link">Lihat Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. MY JOURNEY ===== -->
+  <section class="section" id="journey">
+    <div class="section-inner">
+      <h2 class="section-title reveal">My Journey</h2>
+
+      <div class="journey-track reveal">
+        <div class="journey-progress" id="journeyProgress"></div>
+        <div class="journey-step">
+          <span class="journey-dot"></span>
+          <p>Mahasiswa</p>
+        </div>
+        <div class="journey-step">
+          <span class="journey-dot"></span>
+          <p>Belajar Teknologi</p>
+        </div>
+        <div class="journey-step">
+          <span class="journey-dot"></span>
+          <p>Berkebun</p>
+        </div>
+        <div class="journey-step">
+          <span class="journey-dot"></span>
+          <p>Bekerja di Bengkel</p>
+        </div>
+        <div class="journey-step">
+          <span class="journey-dot"></span>
+          <p>Mengembangkan Skill</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. QUOTE ===== -->
+  <section class="quote-section">
+    <div class="quote-inner reveal">
+      <i class="fa-solid fa-quote-left quote-icon"></i>
+      <p class="quote-text">Terus belajar, terus bekerja, dan terus berkembang. Setiap pengalaman adalah bagian dari perjalanan menuju masa depan.</p>
+      <span class="quote-author">— Najwal Huda</span>
+    </div>
+  </section>
+
+  <!-- ===== 8. CONTACT ===== -->
+  <section class="section section-alt" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Hubungi Saya</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info glass-card reveal">
+          <h3>Najwal Huda</h3>
+          <p class="contact-status">Mahasiswa Teknik Informatika</p>
+          <p class="contact-interest">Minat: Teknologi, Web Development, Berkebun, dan Keterampilan Praktik</p>
+
+          <ul class="social-links">
+            <li><a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form glass-card reveal" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" placeholder="Nama lengkap" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-ripple>
+            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+          </button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>&copy; 2026 Najwal Huda — Portfolio Pribadi</p>
+    <p class="footer-sub">Mahasiswa Teknik Informatika</p>
+  </div>
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
